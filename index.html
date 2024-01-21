@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
+    }
+
+    h1, h2, table {
+      justify-content: center;
     }
 
     div {
@@ -40,6 +43,22 @@
     .box span {
       opacity: 0;
     }
+
+    table {
+      border-collapse: collapse;
+      width: fit-content;
+    }
+
+    tr {
+      width: fit-content;
+      border-bottom: 1px solid #ddd;
+    }
+
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -57,14 +76,13 @@
       <td class="box" rowspan="3"><span>Lorem Ipsum</span></td>
     </tr>
     <tr>
-      <td class="box"><span>Lorem Ipsum</span></td>
+      <td class="box" rowspan="2"><span>Lorem Ipsum</span></td>
       <td class="box"><span>Lorem Ipsum</span></td>
       <td class="box"><span>Lorem Ipsum</span></td>
       <td class="box"><span>Lorem Ipsum</span></td>
       <td class="box"><span>Lorem Ipsum</span></td>
     </tr>
     <tr>
-      <td class="box" rowspan="2"><span>Lorem Ipsum</span></td>
       <td class="box"><span>Lorem Ipsum</span></td>
       <td class="box"><span>Lorem Ipsum</span></td>
       <td class="box"><span>Lorem Ipsum</span></td>
