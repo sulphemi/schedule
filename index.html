@@ -9,16 +9,24 @@
       margin: 0;
     }
 
-    div {
-      display: flex;
-    }
-
     h1, h2 {
       text-align: center;
     }
 
     table {
       margin: auto;
+    }
+
+    .bounding {
+      display: flex;
+    }
+
+    .column {
+
+    }
+
+    .space {
+      width: 0px;
     }
 
     .box {
@@ -69,30 +77,21 @@
   <h1>Schedule</h1>
   <h2>Spring 2024</h2>
 
-  <table>
-    <tr>
-      <td class="box" rowspan="2"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-      <td class="box" rowspan="3"><span>Lorem Ipsum</span></td>
-    </tr>
-    <tr>
-      <td class="box" rowspan="2"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-    </tr>
-    <tr>
-      <td class="box"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-      <td class="box"><span>Lorem Ipsum</span></td>
-    </tr>
-  </table>
+  <div class="bounding">
+    <div class="column">
+      <div class="box"><span>owo</span></div>
+      <div class="space" style="height: 30px;"></div>
+      <div class="box"><span>owo</span></div>
+      <div class="box"><span>owo</span></div>
+      <div class="box"><span>owo</span></div>
+    </div>
+    <div class="column">
+      <div class="box"><span>owo</span></div>
+      <div class="box"><span>owo</span></div>
+      <div class="box"><span>owo</span></div>
+      <div class="box"><span>owo</span></div>
+    </div>
+  </div>
+
 </body>
 </html>
