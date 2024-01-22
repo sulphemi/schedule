@@ -12,6 +12,20 @@
     h1, h2 {
       font-weight: normal;
       text-align: center;
+      margin: 0px;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .headings {
+      height: fit-content;
+      margin-bottom: 5px;
     }
 
     span {
@@ -24,6 +38,10 @@
     }
 
     .bounding {
+      position: absolute;
+      top: 90px;
+      left: 50%;
+      transform: translate(-50%, 0);
       display: flex;
       height: 720px;
       justify-content: center;
@@ -71,11 +89,68 @@
     .box p {
       display: none;
     }
+
+    .lines-container {
+      left: 50%;
+      transform: translate(-50%, 0);
+      position: absolute;
+      top: 90px;
+      width: 75%;
+    }
+
+    .line {
+      margin: 0px;
+      margin-bottom: 59px; /* 60px after 1px border is applied */
+      border: none;
+      border-top: 1px solid #a8a2a2;
+    }
+
+    .tick {
+      margin: 0px;
+      margin-bottom: 50px;
+      height: 10px;
+      text-align: left;
+      color: #a8a2a2;
+    }
   </style>
 </head>
 <body>
-  <h1>Schedule</h1>
-  <h2>Spring 2024</h2>
+  <div class="lines-container">
+    <hr class="line">
+    <hr class="line">
+    <hr class="line">
+    <hr class="line">
+    <hr class="line">
+    <hr class="line">
+    <hr class="line">
+    <hr class="line">
+    <hr class="line">
+    <hr class="line">
+    <hr class="line">
+    <hr class="line">
+    <hr class="line">
+  </div>
+
+  <div class="lines-container">
+    <p class="tick">8:00</p>
+    <p class="tick">9:00</p>
+    <p class="tick">10:00</p>
+    <p class="tick">11:00</p>
+    <p class="tick">12:00</p>
+    <p class="tick">13:00</p>
+    <p class="tick">14:00</p>
+    <p class="tick">15:00</p>
+    <p class="tick">16:00</p>
+    <p class="tick">17:00</p>
+    <p class="tick">18:00</p>
+    <p class="tick">19:00</p>
+    <p class="tick">20:00</p>
+  </div>
+
+  <div class="headings">
+    <h1>Schedule</h1>
+    <h2>Spring 2024</h2>
+  </div>
 
   <div class="bounding">
     <div class="column">
@@ -111,7 +186,9 @@
     <div class="column">
       <div class="box" style="height: 170px;"><span><p><b>Lab: DSA</b></p><p>6 MTC - 300</p><p>8:00-10:50</p></span></span></div>
     </div>
+    <div class="column">
+      <div class="box" style="height: 720px;"><span><p>debug</p></span></div>
+    </div>
   </div>
-
 </body>
 </html>
