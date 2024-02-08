@@ -162,77 +162,86 @@
 
   <script>
     function generateHTML(jsonData) {
-  const boundingDiv = document.getElementById('bounding');
+      const boundingDiv = document.getElementById('bounding');
 
-  jsonData.forEach(column => {
-    const columnDiv = document.createElement('div');
-    columnDiv.classList.add('column');
+      jsonData.forEach(column => {
+        const columnDiv = document.createElement('div');
+        columnDiv.classList.add('column');
 
-    column.forEach(item => {
-      const itemDiv = document.createElement('div');
-      if (item.type === 'space') {
-        itemDiv.classList.add('space');
-        itemDiv.style.height = `${item.height}px`;
-      } else if (item.type === 'box') {
-        const boxDiv = document.createElement('div');
-        boxDiv.classList.add('box');
-        boxDiv.style.height = `${item.height}px`;
-        boxDiv.style.backgroundColor = item.color;
-        
-        item.labels.forEach(label => {
-          const p = document.createElement('p');
-          p.textContent = label;
-          boxDiv.appendChild(p);
+        column.forEach(item => {
+          const itemDiv = document.createElement('div');
+          if (item.type === 'space') {
+            itemDiv.classList.add('space');
+            itemDiv.style.height = `${item.height}px`;
+          } else if (item.type === 'box') {
+            const boxDiv = document.createElement('div');
+            boxDiv.classList.add('box');
+            boxDiv.style.height = `${item.height}px`;
+            boxDiv.style.backgroundColor = item.color;
+
+            const span = document.createElement('span');
+            for (let i = 0; i < item.labels.length; i++) {
+              const p = document.createElement('p');
+              if (i === 0) {
+                const b = document.createElement('b');
+                b.textContent = item.labels[i];
+                p.appendChild(b);
+              } else {
+                p.textContent = item.labels[i];
+              }
+              span.appendChild(p);
+            }
+            boxDiv.appendChild(span);
+
+            itemDiv.appendChild(boxDiv);
+          }
+          columnDiv.appendChild(itemDiv);
         });
 
-        itemDiv.appendChild(boxDiv);
-      }
-      columnDiv.appendChild(itemDiv);
-    });
+        boundingDiv.appendChild(columnDiv);
+      });
+    }
 
-    boundingDiv.appendChild(columnDiv);
-  });
-}
 
-// Your JSON data
-const jsonData = [
-  [
-    { "type": "space", "height": 90 },
-    { "type": "box", "height": 80, "labels": ["Data Structures and Algorithms", "CS-UY 1134 ALEC", "9:30-10:50", "2 MTC - 801"], "color": "#9D6FE8" },
-    { "type": "space", "height": 10 },
-    { "type": "box", "height": 150, "labels": ["Calc I but its for stupid ppl", "MA-UY 1324 A", "11:00-13:30", "6 MTC - 211"], "color": "#4cbdc8" },
-    { "type": "space", "height": 30 },
-    { "type": "box", "height": 75, "labels": ["Advanced Writing for Engineers", "EXPOS-UA 22 014", "14:00-15:15", "6 MTC - 304"], "color": "#9dbd3c" },
-    { "type": "space", "height": 45 },
-    { "type": "box", "height": 110, "labels": ["Still and Moving Images", "DM-UY 2263 B", "16:00-17:50", "370 Jay St - 310"], "color": "#E88E6F" }
-  ],
-  [
-    { "type": "space", "height": 270 },
-    { "type": "box", "height": 80, "labels": ["Exam", "12:30-1:50"], "color": "#aaadb3" },
-    { "type": "space", "height": 10 },
-    { "type": "box", "height": 110, "labels": ["Intro to Web Dev", "DM-UY 2193 B", "14:00-15:50", "370 Jay St - 308"], "color": "#6372e2" }
-  ],
-  [
-    { "type": "space", "height": 90 },
-    { "type": "box", "height": 80, "labels": ["Data Structures and Algorithms", "CS-UY 1134 ALEC", "9:30-10:50", "2 MTC - 801"], "color": "#9D6FE8" },
-    { "type": "space", "height": 10 },
-    { "type": "box", "height": 150, "labels": ["Calc I but its for stupid ppl", "MA-UY 1324 A", "11:00-13:30", "6 MTC - 211"], "color": "#4cbdc8" },
-    { "type": "space", "height": 30 },
-    { "type": "box", "height": 75, "labels": ["Advanced Writing for Engineers", "EXPOS-UA 22 014", "14:00-15:15", "6 MTC - 304"], "color": "#9dbd3c" },
-    { "type": "space", "height": 45 },
-    { "type": "box", "height": 110, "labels": ["Still and Moving Images", "DM-UY 2263 B", "16:00-17:50", "370 Jay St - 310"], "color": "#E88E6F" }
-  ],
-  [
-    { "type": "space", "height": 360 },
-    { "type": "box", "height": 110, "labels": ["Intro to Web Dev", "DM-UY 2193 B", "14:00-15:50", "370 Jay St - 308"], "color": "#6372e2" }
-  ],
-  [
-    { "type": "box", "height": 170, "labels": ["Lab: DSA", "CS-UY 1134 LB2", "8:00-10:50", "6 MTC - 300"], "color": "#9D6FE8" }
-  ]
-];
+    // Your JSON data
+    const jsonData = [
+      [
+        { "type": "space", "height": 90 },
+        { "type": "box", "height": 80, "labels": ["Data Structures and Algorithms", "CS-UY 1134 ALEC", "9:30-10:50", "2 MTC - 801"], "color": "#9D6FE8" },
+        { "type": "space", "height": 10 },
+        { "type": "box", "height": 150, "labels": ["Calc I but its for stupid ppl", "MA-UY 1324 A", "11:00-13:30", "6 MTC - 211"], "color": "#4cbdc8" },
+        { "type": "space", "height": 30 },
+        { "type": "box", "height": 75, "labels": ["Advanced Writing for Engineers", "EXPOS-UA 22 014", "14:00-15:15", "6 MTC - 304"], "color": "#9dbd3c" },
+        { "type": "space", "height": 45 },
+        { "type": "box", "height": 110, "labels": ["Still and Moving Images", "DM-UY 2263 B", "16:00-17:50", "370 Jay St - 310"], "color": "#E88E6F" }
+      ],
+      [
+        { "type": "space", "height": 270 },
+        { "type": "box", "height": 80, "labels": ["Exam", "12:30-1:50"], "color": "#aaadb3" },
+        { "type": "space", "height": 10 },
+        { "type": "box", "height": 110, "labels": ["Intro to Web Dev", "DM-UY 2193 B", "14:00-15:50", "370 Jay St - 308"], "color": "#6372e2" }
+      ],
+      [
+        { "type": "space", "height": 90 },
+        { "type": "box", "height": 80, "labels": ["Data Structures and Algorithms", "CS-UY 1134 ALEC", "9:30-10:50", "2 MTC - 801"], "color": "#9D6FE8" },
+        { "type": "space", "height": 10 },
+        { "type": "box", "height": 150, "labels": ["Calc I but its for stupid ppl", "MA-UY 1324 A", "11:00-13:30", "6 MTC - 211"], "color": "#4cbdc8" },
+        { "type": "space", "height": 30 },
+        { "type": "box", "height": 75, "labels": ["Advanced Writing for Engineers", "EXPOS-UA 22 014", "14:00-15:15", "6 MTC - 304"], "color": "#9dbd3c" },
+        { "type": "space", "height": 45 },
+        { "type": "box", "height": 110, "labels": ["Still and Moving Images", "DM-UY 2263 B", "16:00-17:50", "370 Jay St - 310"], "color": "#E88E6F" }
+      ],
+      [
+        { "type": "space", "height": 360 },
+        { "type": "box", "height": 110, "labels": ["Intro to Web Dev", "DM-UY 2193 B", "14:00-15:50", "370 Jay St - 308"], "color": "#6372e2" }
+      ],
+      [
+        { "type": "box", "height": 170, "labels": ["Lab: DSA", "CS-UY 1134 LB2", "8:00-10:50", "6 MTC - 300"], "color": "#9D6FE8" }
+      ]
+    ];
 
-// Call the function to generate HTML
-generateHTML(jsonData);
+    // Call the function to generate HTML
+    generateHTML(jsonData);
   </script>
 </body>
 </html>
